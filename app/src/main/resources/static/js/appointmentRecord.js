@@ -1,4 +1,3 @@
-// appointmentRecord.js
 import { getAppointments } from "./components/appointmentRow.js";
 import { getAppointmentRecord } from "./services/appointmentRecordService.js";
 

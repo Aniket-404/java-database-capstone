@@ -1,4 +1,3 @@
-// patientRecordServices.js
 import { getPatientAppointments } from "./services/patientServices.js";
 import { createPatientRecordRow } from './components/patientRecordRow.js';
 
@@ -18,7 +17,7 @@ async function initializePage() {
     const appointmentData = await getPatientAppointments(patientId, token, "doctor") || [];
 
     // Filter by both patientId and doctorId
-    const filteredAppointments = appointmentData.filter(app =>
+    const filteredAppointments = appointmentData.filter(app => 
       app.doctorId == doctorId);
     console.log(filteredAppointments)
     renderAppointments(filteredAppointments);

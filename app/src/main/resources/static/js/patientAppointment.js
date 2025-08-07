@@ -1,4 +1,3 @@
-// patientAppointment.js
 import { getPatientAppointments, getPatientData, filterAppointments } from "./services/patientServices.js";
 
 const tableBody = document.getElementById("patientTableBody");
@@ -6,7 +5,7 @@ const token = localStorage.getItem("token");
 
 let allAppointments = [];
 let filteredAppointments = [];
-let patientId = null;
+let patientId = null; 
 
 document.addEventListener("DOMContentLoaded", initializePage);
 
@@ -19,7 +18,7 @@ async function initializePage() {
 
     patientId = Number(patient.id);
 
-    const appointmentData = await getPatientAppointments(patientId, token, "patient") || [];
+    const appointmentData = await getPatientAppointments(patientId, token ,"patient") || [];
     allAppointments = appointmentData.filter(app => app.patientId === patientId);
 
     renderAppointments(allAppointments);
@@ -89,7 +88,7 @@ async function handleFilterChange() {
   const filterValue = document.getElementById("appointmentFilter").value;
 
   const name = searchBarValue || null;
-  const condition = filterValue === "allAppointments" ? null : filterValue || null;
+  const condition = filterValue === "allAppointments"? null : filterValue || null;
 
   try {
     const response = await filterAppointments(condition, name, token);
@@ -103,3 +102,4 @@ async function handleFilterChange() {
   }
 }
 
+  

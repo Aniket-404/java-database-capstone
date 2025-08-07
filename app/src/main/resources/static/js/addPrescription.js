@@ -13,12 +13,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   const appointmentId = urlParams.get("appointmentId");
   const mode = urlParams.get("mode");
   const token = localStorage.getItem("token");
-  const patientName = urlParams.get("patientName")
+  const patientName= urlParams.get("patientName")
 
   if (heading) {
+    // Check if the mode is "view"
     if (mode === "view") {
+      // Change the text to "View Prescription for [Patient Name]"
       heading.innerHTML = `View <span>Prescription</span>`;
     } else {
+      // Otherwise, set it as "Add Prescription for [Patient Name]"
       heading.innerHTML = `Add <span>Prescription</span>`;
     }
   }
@@ -43,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         dosageInput.value = existingPrescription.dosage || "";
         notesInput.value = existingPrescription.doctorNotes || "";
       }
-
+      
     } catch (error) {
       console.warn("No existing prescription found or failed to load:", error);
     }
