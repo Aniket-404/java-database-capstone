@@ -83,9 +83,9 @@ public class DoctorService {
     public int saveDoctor(Doctor doctor) {
 
         // success: 1, conflict:-1, internal error: 0
-        Doctor result = doctorRepository.findByEmail(doctor.getEmail());
+        Optional<Doctor> resultOpt = doctorRepository.findFirstByEmail(doctor.getEmail());
 
-        if (result != null) {
+        if (resultOpt.isPresent()) {
             return -1;
         }
         try {
@@ -142,8 +142,9 @@ public class DoctorService {
         Map<String, String> map = new HashMap<>();
         try {
 
-            Doctor doctor = doctorRepository.findByEmail(login.getEmail());
-            if (doctor != null) {
+            Optional<Doctor> doctorOpt = doctorRepository.findFirstByEmail(login.getEmail());
+            if (doctorOpt.isPresent()) {
+                Doctor doctor = doctorOpt.get();
                 if (doctor.getPassword().equals(login.getPassword())) {
                     map.put("token", tokenService.generateToken(doctor.getEmail()));
                     return ResponseEntity.status(HttpStatus.OK).body(map);

@@ -133,8 +133,9 @@ public class Service {
     public ResponseEntity<Map<String, String>> validatePatientLogin(Login login) {
         Map<String, String> map = new HashMap<>();
         try {
-            Patient result = patientRepository.findByEmail(login.getEmail());
-            if (result != null) {
+            Optional<Patient> resultOpt = patientRepository.findFirstByEmail(login.getEmail());
+            if (resultOpt.isPresent()) {
+                Patient result = resultOpt.get();
                 if (result.getPassword().equals(login.getPassword())) {
                     map.put("token", tokenService.generateToken(login.getEmail()));
                     return ResponseEntity.status(HttpStatus.OK).body(map);
