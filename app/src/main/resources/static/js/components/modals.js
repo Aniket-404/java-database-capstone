@@ -83,12 +83,12 @@ export function openModal(type) {
     document.getElementById("signupBtn").addEventListener("click", signupPatient);
   }
 
-  if (type === "patientLogin") {
-    document.getElementById("loginBtn").addEventListener("click", loginPatient);
+  if(type === "patientLogin"){
+    document.getElementById("loginBtn").addEventListener("click" , loginPatient);
   }
 
-  if (type === 'addDoctor') {
-    document.getElementById('saveDoctorBtn').addEventListener('click', adminAddDoctor);
+  if(type === 'addDoctor'){
+    document.getElementById('saveDoctorBtn').addEventListener('click' , adminAddDoctor);
   }
 
   if (type === 'adminLogin') {

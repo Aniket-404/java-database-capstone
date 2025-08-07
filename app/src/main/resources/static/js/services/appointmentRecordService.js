@@ -1,4 +1,3 @@
-// appointmentRecordService.js
 import { API_BASE_URL } from "../config/config.js";
 const APPOINTMENT_API = `${API_BASE_URL}/appointments`;
 
@@ -9,8 +8,8 @@ export async function getAllAppointments(date, patientName, token) {
   if (!response.ok) {
     throw new Error("Failed to fetch appointments");
   }
-
-  return await response.json();
+  
+  return await response.json(); 
 }
 
 export async function bookAppointment(appointment, token) {
