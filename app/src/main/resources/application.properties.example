@@ -1,0 +1,34 @@
+spring.application.name=back-end
+
+# Database Configuration - MySQL
+spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name?usessl=false
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
+
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.open-in-view=false
+
+# MongoDB Configuration
+spring.data.mongodb.uri=mongodb://localhost:27017/your_mongodb_database
+
+# Management and Health Configuration
+management.endpoint.health.show-details=always
+management.health.db.enabled=true
+
+# API Configuration
+api.path=/
+jwt.secret=your_jwt_secret_key_here
+
+# Static Resources Configuration
+spring.web.resources.static-locations=classpath:/static/
+
+# -------------------------
+# Thymeleaf Configuration
+# -------------------------
+spring.thymeleaf.prefix=classpath:/templates/
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.mode=HTML
+spring.thymeleaf.cache=false    
+spring.thymeleaf.encoding=UTF-8
