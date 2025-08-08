@@ -67,7 +67,7 @@ jobs:
         mvn package -DskipTests
         
     - name: Upload JAR artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: smart-clinic-backend
         path: app/target/*.jar
@@ -96,7 +96,7 @@ jobs:
         docker save smart-clinic-backend:latest | gzip > smart-clinic-backend.tar.gz
         
     - name: Upload Docker image artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: docker-image
         path: smart-clinic-backend.tar.gz
