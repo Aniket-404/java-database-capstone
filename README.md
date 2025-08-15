@@ -16,6 +16,16 @@ Welcome to Smart Clinic Management System! This is a full-stack medical appointm
 
 ---
 
+## 🧰 Tech Stack
+- **Backend:** Spring Boot, Java 17
+- **Frontend:** HTML, CSS, JavaScript (served from Spring static resources)
+- **Database:** MySQL (relational), MongoDB (NoSQL for prescriptions)
+- **Authentication:** JWT (JSON Web Token)
+- **Build Tool:** Maven
+- **Containerization:** Docker
+- **CI/CD:** GitHub Actions
+
+
 ## 🛠️ Prerequisites
 - Java 17 or later ☕
 - Maven 3.8+ 🛠️
